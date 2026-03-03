@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div style="font-size: 48px; margin-bottom: 16px;">📚</div>
+      <h1>Create Account</h1>
+      <p>Start your learning journey today</p>
+    </div>
+
+    <form id="signupForm">
+
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-input" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Course</label>
+        <select id="course" class="form-input" required>
+          <option value="">Select your course</option>
+          <option value="cs">Computer Science</option>
+          <option value="it">Information Technology</option>
+          <option value="ai">Artificial Intelligence</option>
+          <option value="ds">Data Science</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="password" class="form-input" required minlength="6">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="form-input" required minlength="6">
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:16px;">
+        Create Account
+      </button>
+
+      <div id="errorMessage" style="display:none; margin-top:12px; color:red; padding:12px; background:#fee; border-radius:4px;"></div>
+      <div id="loadingMessage" style="display:none; margin-top:12px; color:#0066cc; padding:12px; background:#e6f2ff; border-radius:4px;">Creating account...</div>
+
+    </form>
+
+    <div class="form-footer">
+      Already have an account? <a href="login.html">Sign in</a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  const SUPABASE_URL = "https://rotocgcvorxjzevtwueu.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvdG9jZ2N2b3J4anpldnR3dWV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MTA4NjQsImV4cCI6MjA4NzQ4Njg2NH0.lqH7-v-oihegXK5OkI_kseTbkQ271QjOk8gRoFIfI3Y";
+
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const errorDiv = document.getElementById("errorMessage");
+  const loadingDiv = document.getElementById("loadingMessage");
+  const submitButton = document.querySelector('button[type="submit"]');
+
+  function showError(message) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    loadingDiv.style.display = 'none';
+    submitButton.disabled = false;
+  }
+
+  function showLoading() {
+    errorDiv.style.display = 'none';
+    loadingDiv.style.display = 'block';
+    submitButton.disabled = true;
+  }
+
+  document.getElementById("signupForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const fullName = document.getElementById("name").value.trim();
+    const course = document.getElementById("course").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      showError("Passwords do not match!");
+      return;
+    }
+
+    showLoading();
+
+    const name = document.getElementById("name").value.trim();
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          full_name: name
+        }
+      }
+    });
+
+    if (error) {
+      showError(error.message);
+      return;
+    }
+
+    window.location.href = "dashboard.html";
+  });
+</script>
+
+</body>
+</html>

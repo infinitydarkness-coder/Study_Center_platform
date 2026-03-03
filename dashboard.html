@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar" id="userAvatar">JD</div>
+          <div class="user-info">
+            <h4 id="userName">John Doe</h4>
+            <p id="userCourse">Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html" class="active">📊 Dashboard</a></li>
+          <li><a href="courses.html">📖 My Courses</a></li>
+          <li><a href="roadmap.html">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html">🏆 Certificates</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <h1 id="welcomeTitle" style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+          Welcome back, John! 👋
+        </h1>
+        <p style="color: #6b7280; font-size: 16px;">Here's your learning progress overview</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue">📚</div>
+          </div>
+          <div class="stat-value">12</div>
+          <div class="stat-label">Enrolled Courses</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green">✅</div>
+          </div>
+          <div class="stat-value">8</div>
+          <div class="stat-label">Completed</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange">📄</div>
+          </div>
+          <div class="stat-value">156</div>
+          <div class="stat-label">Study Materials</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple">🏆</div>
+          </div>
+          <div class="stat-value">5</div>
+          <div class="stat-label">Certificates</div>
+        </div>
+      </div>
+
+      <!-- Continue Learning -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Continue Learning</h2>
+          <a href="courses.html" style="color: #2563EB; text-decoration: none; font-weight: 500; font-size: 14px;">View All</a>
+        </div>
+
+        <div class="course-grid">
+          <!-- Course Card 1 -->
+          <div class="course-card" onclick="window.location.href='subject.html?id=1'">
+            <div class="course-image">💻</div>
+            <div class="course-content">
+              <span class="course-badge">In Progress</span>
+              <h3 class="course-title">Data Structures & Algorithms</h3>
+              <div class="course-meta">
+                <span>📁 45 Materials</span>
+                <span>⏱️ 8 hours</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%;"></div>
+              </div>
+              <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">65% Complete</p>
+            </div>
+          </div>
+
+          <!-- Course Card 2 -->
+          <div class="course-card" onclick="window.location.href='subject.html?id=2'">
+            <div class="course-image">🤖</div>
+            <div class="course-content">
+              <span class="course-badge">In Progress</span>
+              <h3 class="course-title">Machine Learning</h3>
+              <div class="course-meta">
+                <span>📁 52 Materials</span>
+                <span>⏱️ 12 hours</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%;"></div>
+              </div>
+              <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">40% Complete</p>
+            </div>
+          </div>
+
+          <!-- Course Card 3 -->
+          <div class="course-card" onclick="window.location.href='subject.html?id=3'">
+            <div class="course-image">🗄️</div>
+            <div class="course-content">
+              <span class="course-badge">In Progress</span>
+              <h3 class="course-title">Database Management</h3>
+              <div class="course-meta">
+                <span>📁 38 Materials</span>
+                <span>⏱️ 6 hours</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 80%;"></div>
+              </div>
+              <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">80% Complete</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Recommendations -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">🤖 AI Recommendations</h2>
+        </div>
+        
+        <div style="display: grid; gap: 16px;">
+          <div style="padding: 16px; background: #eff6ff; border-radius: 12px; border-left: 4px solid #2563EB;">
+            <h4 style="color: #1e3a8a; font-weight: 600; margin-bottom: 8px;">Focus on Advanced Algorithms</h4>
+            <p style="color: #6b7280; font-size: 14px;">Based on your progress, we recommend spending more time on dynamic programming and graph algorithms.</p>
+          </div>
+          
+          <div style="padding: 16px; background: #f0fdf4; border-radius: 12px; border-left: 4px solid #16a34a;">
+            <h4 style="color: #1e3a8a; font-weight: 600; margin-bottom: 8px;">You're doing great in Database!</h4>
+            <p style="color: #6b7280; font-size: 14px;">You're 80% done with DBMS. Consider practicing with real-world projects to solidify your knowledge.</p>
+          </div>
+          
+          <div style="padding: 16px; background: #fff7ed; border-radius: 12px; border-left: 4px solid #ea580c;">
+            <h4 style="color: #1e3a8a; font-weight: 600; margin-bottom: 8px;">New Materials Available</h4>
+            <p style="color: #6b7280; font-size: 14px;">3 new video lectures on Neural Networks have been added to Machine Learning course.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Recent Activity</h2>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 16px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+            <div style="width: 40px; height: 40px; background: #eff6ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📄</div>
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Downloaded "Sorting Algorithms Notes"</h4>
+              <p style="font-size: 14px; color: #6b7280;">2 hours ago</p>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 16px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+            <div style="width: 40px; height: 40px; background: #f0fdf4; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">✅</div>
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Completed "SQL Queries" module</h4>
+              <p style="font-size: 14px; color: #6b7280;">Yesterday</p>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 16px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+            <div style="width: 40px; height: 40px; background: #faf5ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🏆</div>
+            <div style="flex: 1;">
+              <h4 style="font-size: 15px; font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Earned "DBMS Expert" certificate</h4>
+              <p style="font-size: 14px; color: #6b7280;">2 days ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! I'm your AI study assistant. How can I help you today?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const SUPABASE_URL = "https://rotocgcvorxjzevtwueu.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvdG9jZ2N2b3J4anpldnR3dWV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MTA4NjQsImV4cCI6MjA4NzQ4Njg2NH0.lqH7-v-oihegXK5OkI_kseTbkQ271QjOk8gRoFIfI3Y";
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const userNameEl = document.getElementById("userName");
+    const userCourseEl = document.getElementById("userCourse");
+    const userAvatarEl = document.getElementById("userAvatar");
+    const welcomeTitleEl = document.getElementById("welcomeTitle");
+
+    const courseLabelMap = {
+      cs: "Computer Science",
+      it: "Information Technology",
+      ai: "Artificial Intelligence",
+      ds: "Data Science"
+    };
+
+    function initialsFromName(name) {
+      if (!name) return "U";
+      const parts = name.trim().split(/\s+/);
+      const first = parts[0]?.[0] || "";
+      const last = parts.length > 1 ? parts[parts.length - 1][0] : "";
+      return (first + last).toUpperCase() || "U";
+    }
+
+   async function loadUser() {
+  const { data: { user }, error } = await supabase.auth.getUser();
+
+  if (error || !user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  // Get role from profiles table
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .single();
+
+  if (profileError || !profile) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  // 🚨 If admin, redirect to admin page
+  if (profile.role === "admin") {
+    window.location.href = "admin.html";
+    return;
+  }
+
+  // Otherwise continue loading student dashboard
+  const fullName = user.user_metadata?.full_name || "User";
+  const courseKey = user.user_metadata?.course || "";
+  const courseLabel = courseLabelMap[courseKey] || courseKey || "Course";
+
+  userNameEl.textContent = fullName;
+  userCourseEl.textContent = courseLabel;
+  userAvatarEl.textContent = initialsFromName(fullName);
+  welcomeTitleEl.textContent = `Welcome back, ${fullName.split(" ")[0]}! 👋`;
+}
+
+    loadUser();
+  </script>
+</body>
+</html>

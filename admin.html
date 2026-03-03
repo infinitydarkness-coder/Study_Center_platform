@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <!-- Logo -->
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <!-- Navigation Menu -->
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link active">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Logout -->
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <div class="page-header">
+        <h1>Dashboard</h1>
+        <p>Welcome back, Admin</p>
+      </div>
+
+      <!-- Statistics Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue">👥</div>
+          </div>
+          <div class="stat-value">1,248</div>
+          <div class="stat-label">Total Users</div>
+          <div class="stat-change">+12.5%</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green">📖</div>
+          </div>
+          <div class="stat-value">48</div>
+          <div class="stat-label">Total Courses</div>
+          <div class="stat-change">+3 this month</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange">⏱</div>
+          </div>
+          <div class="stat-value">23</div>
+          <div class="stat-label">Pending Uploads</div>
+          <div class="stat-change">Needs review</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple">🏆</div>
+          </div>
+          <div class="stat-value">892</div>
+          <div class="stat-label">Certificates Issued</div>
+          <div class="stat-change">+48 this week</div>
+        </div>
+      </div>
+
+      <!-- Recent Pending Uploads -->
+      <div class="card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f3f4f6;">
+          <div>
+            <h2 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Recent Pending Uploads</h2>
+            <p style="font-size: 14px; color: #6b7280;">Materials waiting for approval</p>
+          </div>
+          <a href="admin-pending-uploads.html" style="font-size: 14px; color: #2563EB; text-decoration: none; font-weight: 500;">View All</a>
+        </div>
+
+        <div>
+          <!-- Upload Item 1 -->
+          <div class="upload-item">
+            <div class="upload-info">
+              <div class="item-icon">📄</div>
+              <div class="upload-details">
+                <h3>Introduction to Data Structures</h3>
+                <div class="upload-meta">
+                  <span>Computer Science</span>
+                  <span>•</span>
+                  <span>By John Doe</span>
+                  <span>•</span>
+                  <span>2024-02-15</span>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-success btn-small" onclick="approveUpload(1)">Approve</button>
+              <button class="btn btn-danger btn-small" onclick="rejectUpload(1)">Reject</button>
+            </div>
+          </div>
+
+          <!-- Upload Item 2 -->
+          <div class="upload-item">
+            <div class="upload-info">
+              <div class="item-icon">🎥</div>
+              <div class="upload-details">
+                <h3>Machine Learning Basics</h3>
+                <div class="upload-meta">
+                  <span>Artificial Intelligence</span>
+                  <span>•</span>
+                  <span>By Sarah Smith</span>
+                  <span>•</span>
+                  <span>2024-02-14</span>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-success btn-small" onclick="approveUpload(2)">Approve</button>
+              <button class="btn btn-danger btn-small" onclick="rejectUpload(2)">Reject</button>
+            </div>
+          </div>
+
+          <!-- Upload Item 3 -->
+          <div class="upload-item">
+            <div class="upload-info">
+              <div class="item-icon">📊</div>
+              <div class="upload-details">
+                <h3>Database Management Systems</h3>
+                <div class="upload-meta">
+                  <span>Computer Science</span>
+                  <span>•</span>
+                  <span>By Michael Brown</span>
+                  <span>•</span>
+                  <span>2024-02-14</span>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-success btn-small" onclick="approveUpload(3)">Approve</button>
+              <button class="btn btn-danger btn-small" onclick="rejectUpload(3)">Reject</button>
+            </div>
+          </div>
+
+          <!-- Upload Item 4 -->
+          <div class="upload-item">
+            <div class="upload-info">
+              <div class="item-icon">📄</div>
+              <div class="upload-details">
+                <h3>Operating Systems Concepts</h3>
+                <div class="upload-meta">
+                  <span>Computer Science</span>
+                  <span>•</span>
+                  <span>By Emily Johnson</span>
+                  <span>•</span>
+                  <span>2024-02-13</span>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-success btn-small" onclick="approveUpload(4)">Approve</button>
+              <button class="btn btn-danger btn-small" onclick="rejectUpload(4)">Reject</button>
+            </div>
+          </div>
+
+          <!-- Upload Item 5 -->
+          <div class="upload-item">
+            <div class="upload-info">
+              <div class="item-icon">🎥</div>
+              <div class="upload-details">
+                <h3>Web Development Tutorial</h3>
+                <div class="upload-meta">
+                  <span>Web Technologies</span>
+                  <span>•</span>
+                  <span>By David Wilson</span>
+                  <span>•</span>
+                  <span>2024-02-13</span>
+                </div>
+              </div>
+            </div>
+            <div class="action-buttons">
+              <button class="btn btn-success btn-small" onclick="approveUpload(5)">Approve</button>
+              <button class="btn btn-danger btn-small" onclick="rejectUpload(5)">Reject</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>

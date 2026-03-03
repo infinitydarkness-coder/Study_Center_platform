@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects Management - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link active">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header-actions">
+        <div class="page-header" style="margin-bottom: 0;">
+          <h1>Subjects Management</h1>
+          <p>Manage subjects across all courses</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAddSubjectModal()">
+          <span>➕</span> Add Subject
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="input-field search-input" placeholder="Search subjects by name or code...">
+        </div>
+      </div>
+
+      <!-- Subjects Table -->
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Code</th>
+              <th>Course</th>
+              <th>Materials</th>
+              <th>Students</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Data Structures and Algorithms</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">CS201</span></td>
+              <td>Computer Science</td>
+              <td>45</td>
+              <td>234</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Database Management Systems</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">CS301</span></td>
+              <td>Computer Science</td>
+              <td>38</td>
+              <td>198</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Machine Learning</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">AI401</span></td>
+              <td>Artificial Intelligence</td>
+              <td>52</td>
+              <td>167</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Operating Systems</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">CS302</span></td>
+              <td>Computer Science</td>
+              <td>41</td>
+              <td>212</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Web Technologies</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">IT202</span></td>
+              <td>Information Technology</td>
+              <td>36</td>
+              <td>189</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📂</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Computer Networks</div>
+                </div>
+              </td>
+              <td><span style="font-family: monospace; font-size: 14px;">CS303</span></td>
+              <td>Computer Science</td>
+              <td>33</td>
+              <td>176</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <div class="action-buttons">
+                  <button class="icon-btn blue">✏️</button>
+                  <button class="icon-btn red">🗑️</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Subject Modal -->
+  <div id="addSubjectModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 class="modal-header">Add New Subject</h2>
+      <form onsubmit="submitSubject(event)">
+        <div class="input-group">
+          <label class="input-label">Subject Name</label>
+          <input type="text" class="input-field" placeholder="e.g., Data Structures and Algorithms" required>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Subject Code</label>
+          <input type="text" class="input-field" placeholder="e.g., CS201" required>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Course</label>
+          <select class="input-field">
+            <option>Select a course</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Artificial Intelligence</option>
+            <option>Data Science</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Description</label>
+          <textarea class="input-field" rows="3" placeholder="Brief description of the subject..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAddSubjectModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Subject</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-script.js"></script>
+  <script>
+    function openAddSubjectModal() {
+      document.getElementById('addSubjectModal').classList.remove('hidden');
+    }
+
+    function closeAddSubjectModal() {
+      document.getElementById('addSubjectModal').classList.add('hidden');
+    }
+
+    function submitSubject(e) {
+      e.preventDefault();
+      alert('Subject added successfully!');
+      closeAddSubjectModal();
+    }
+  </script>
+</body>
+</html>

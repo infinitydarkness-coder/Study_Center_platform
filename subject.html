@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Structures & Algorithms - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar">JD</div>
+          <div class="user-info">
+            <h4>John Doe</h4>
+            <p>Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="courses.html" class="active">📖 My Courses</a></li>
+          <li><a href="roadmap.html">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html">🏆 Certificates</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Breadcrumb -->
+      <div style="margin-bottom: 24px;">
+        <a href="courses.html" style="color: #6b7280; text-decoration: none; font-size: 14px;">← Back to Courses</a>
+      </div>
+
+      <!-- Subject Header -->
+      <div style="margin-bottom: 32px;">
+        <div style="display: flex; align-items: start; gap: 24px; margin-bottom: 16px;">
+          <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 40px;">💻</div>
+          <div style="flex: 1;">
+            <h1 style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+              Data Structures & Algorithms
+            </h1>
+            <p style="color: #6b7280; font-size: 16px; margin-bottom: 16px;">
+              Master fundamental data structures and algorithmic problem-solving techniques
+            </p>
+            <div style="display: flex; align-items: center; gap: 24px; color: #6b7280;">
+              <span>📁 45 Materials</span>
+              <span>⏱️ 8 hours</span>
+              <span>👤 234 Students</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div style="background: white; padding: 20px; border-radius: 16px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); border: 1px solid #f3f4f6;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <span style="font-weight: 600; color: #1e3a8a;">Your Progress</span>
+            <span style="font-weight: 600; color: #2563EB;">65%</span>
+          </div>
+          <div class="progress-bar" style="height: 12px;">
+            <div class="progress-fill" style="width: 65%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Material Tabs -->
+      <div class="materials-tabs">
+        <button class="tab-btn active" onclick="switchTab('all')">All Materials</button>
+        <button class="tab-btn" onclick="switchTab('notes')">Notes</button>
+        <button class="tab-btn" onclick="switchTab('videos')">Videos</button>
+        <button class="tab-btn" onclick="switchTab('presentations')">Presentations</button>
+        <button class="tab-btn" onclick="switchTab('practice')">Practice Papers</button>
+      </div>
+
+      <!-- Materials Grid -->
+      <div class="materials-grid" id="materialsGrid">
+        <!-- Material Card 1 -->
+        <div class="material-card">
+          <div class="material-icon">📄</div>
+          <h3 class="material-title">Introduction to Arrays</h3>
+          <p class="material-meta">Notes • PDF • 2.5 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Introduction to Arrays')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 2 -->
+        <div class="material-card">
+          <div class="material-icon">🎥</div>
+          <h3 class="material-title">Linked Lists Explained</h3>
+          <p class="material-meta">Video • MP4 • 45 mins</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="watchVideo('Linked Lists')">
+            Watch Video
+          </button>
+        </div>
+
+        <!-- Material Card 3 -->
+        <div class="material-card">
+          <div class="material-icon">📊</div>
+          <h3 class="material-title">Sorting Algorithms</h3>
+          <p class="material-meta">Presentation • PPT • 3.8 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Sorting Algorithms')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 4 -->
+        <div class="material-card">
+          <div class="material-icon">📄</div>
+          <h3 class="material-title">Binary Search Trees</h3>
+          <p class="material-meta">Notes • PDF • 1.9 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Binary Search Trees')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 5 -->
+        <div class="material-card">
+          <div class="material-icon">📝</div>
+          <h3 class="material-title">Practice Set 1</h3>
+          <p class="material-meta">Practice • PDF • 1.2 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Practice Set 1')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 6 -->
+        <div class="material-card">
+          <div class="material-icon">🎥</div>
+          <h3 class="material-title">Graph Algorithms</h3>
+          <p class="material-meta">Video • MP4 • 52 mins</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="watchVideo('Graph Algorithms')">
+            Watch Video
+          </button>
+        </div>
+
+        <!-- Material Card 7 -->
+        <div class="material-card">
+          <div class="material-icon">📄</div>
+          <h3 class="material-title">Dynamic Programming</h3>
+          <p class="material-meta">Notes • PDF • 3.1 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Dynamic Programming')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 8 -->
+        <div class="material-card">
+          <div class="material-icon">📊</div>
+          <h3 class="material-title">Hash Tables Deep Dive</h3>
+          <p class="material-meta">Presentation • PPT • 2.7 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Hash Tables')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 9 -->
+        <div class="material-card">
+          <div class="material-icon">📝</div>
+          <h3 class="material-title">Mid-Term Practice Paper</h3>
+          <p class="material-meta">Practice • PDF • 1.5 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Mid-Term Practice')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 10 -->
+        <div class="material-card">
+          <div class="material-icon">🎥</div>
+          <h3 class="material-title">Stack & Queue Operations</h3>
+          <p class="material-meta">Video • MP4 • 38 mins</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="watchVideo('Stack & Queue')">
+            Watch Video
+          </button>
+        </div>
+
+        <!-- Material Card 11 -->
+        <div class="material-card">
+          <div class="material-icon">📄</div>
+          <h3 class="material-title">Recursion Techniques</h3>
+          <p class="material-meta">Notes • PDF • 2.2 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Recursion Techniques')">
+            Download
+          </button>
+        </div>
+
+        <!-- Material Card 12 -->
+        <div class="material-card">
+          <div class="material-icon">📊</div>
+          <h3 class="material-title">Time Complexity Analysis</h3>
+          <p class="material-meta">Presentation • PPT • 2.9 MB</p>
+          <button class="btn btn-primary" style="width: 100%;" onclick="downloadMaterial('Time Complexity')">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <!-- Upload Material Section -->
+      <div class="card" style="margin-top: 32px;">
+        <h2 class="card-title" style="margin-bottom: 16px;">📤 Upload Study Material</h2>
+        <p style="color: #6b7280; margin-bottom: 16px;">Share your notes, presentations, or resources with fellow students. All uploads are verified by admins.</p>
+        <button class="btn btn-secondary" onclick="openUploadModal()">
+          Upload Material
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! I'm your AI study assistant. How can I help you with Data Structures & Algorithms?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+  <script>
+    function switchTab(type) {
+      // Remove active class from all tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked tab
+      event.target.classList.add('active');
+      
+      // In a real application, you would filter materials here
+      console.log('Switching to tab:', type);
+    }
+
+    function downloadMaterial(name) {
+      alert('Downloading: ' + name);
+      // In a real application, you would trigger actual download
+    }
+
+    function watchVideo(name) {
+      alert('Opening video: ' + name);
+      // In a real application, you would open video player
+    }
+
+    function openUploadModal() {
+      alert('Upload modal would open here');
+      // In a real application, you would open an upload form modal
+    }
+  </script>
+</body>
+</html>

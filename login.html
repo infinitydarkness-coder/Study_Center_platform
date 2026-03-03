@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div style="font-size: 48px; margin-bottom: 16px;">📚</div>
+        <h1>Welcome Back</h1>
+        <p>Sign in to continue your learning journey</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group" style="display: flex; align-items: center; justify-content: space-between;">
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280;">
+            <input type="checkbox" style="width: 16px; height: 16px;">
+            Remember me
+          </label>
+          <a href="#" style="font-size: 14px; color: #2563EB; text-decoration: none;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 8px;">
+          Sign In
+        </button>
+        
+        <div id="errorMessage" style="display: none; margin-top: 12px; padding: 12px; background-color: #fee; border-radius: 8px; color: #c00; font-size: 14px;"></div>
+        <div id="loadingMessage" style="display: none; margin-top: 12px; text-align: center; color: #6b7280; font-size: 14px;">Signing in...</div>
+      </form>
+
+      <div class="form-footer">
+        Don't have an account? <a href="signup.html">Sign up</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e7eb;">
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase SDK -->
+   <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const supabase = createClient(
+      "https://rotocgcvorxjzevtwueu.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvdG9jZ2N2b3J4anpldnR3dWV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MTA4NjQsImV4cCI6MjA4NzQ4Njg2NH0.lqH7-v-oihegXK5OkI_kseTbkQ271QjOk8gRoFIfI3Y"
+    );
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorDiv = document.getElementById('errorMessage');
+      const loadingDiv = document.getElementById('loadingMessage');
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      
+      // Clear previous errors
+      errorDiv.style.display = 'none';
+      loadingDiv.style.display = 'block';
+      submitBtn.disabled = true;
+
+      try {
+        console.log('Starting login process...');
+        // Sign in with Supabase
+        const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+          email: email,
+          password: password
+        });
+
+        console.log('Login response:', { authData, authError });
+
+        if (authError) {
+          throw authError;
+        }
+
+        if (!authData || !authData.user) {
+          throw new Error("Login failed - no user returned");
+        }
+
+        console.log('Login successful, fetching profile...');
+        // Get user profile to check role
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("role, name")
+          .eq("id", authData.user.id)
+          .maybeSingle()
+
+        console.log('Profile fetch result:', { profile, profileError });
+
+        if (profileError) {
+          throw profileError;
+        }
+
+        // Redirect based on role
+        if (profile.role === "admin") {
+          console.log('Redirecting to admin.html');
+          window.location.href = "admin.html";
+        } else {
+          console.log('Redirecting to dashboard.html');
+          window.location.href = "dashboard.html";
+        }
+
+      } catch (error) {
+        console.error('Login error:', error);
+        errorDiv.textContent = error.message || 'Login failed. Please check your credentials.';
+        errorDiv.style.display = 'block';
+        loadingDiv.style.display = 'none';
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Check if user is already logged in
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        // User is already logged in, redirect based on role
+        supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", session.user.id)
+          .single()
+          .then(({ data }) => {
+            if (data && data.role === "admin") {
+              window.location.href = "admin.html";
+            } else {
+              window.location.href = "dashboard.html";
+            }
+          });
+      }
+    });
+    document.getElementById("loginForm")
+  .addEventListener("submit", handleLogin);
+  console.log("Profile:", profile);
+  </script>
+</body>
+</html>

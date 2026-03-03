@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Roadmap Generator - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar">JD</div>
+          <div class="user-info">
+            <h4>John Doe</h4>
+            <p>Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="courses.html">📖 My Courses</a></li>
+          <li><a href="roadmap.html" class="active">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html">🏆 Certificates</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+          🤖 AI Roadmap Generator
+        </h1>
+        <p style="color: #6b7280; font-size: 16px;">Create personalized learning paths powered by AI</p>
+      </div>
+
+      <!-- Generate Roadmap Card -->
+      <div class="card" style="background: linear-gradient(135deg, #eff6ff 0%, white 100%); border: 2px solid #2563EB;">
+        <h2 style="font-size: 24px; font-weight: 700; color: #1e3a8a; margin-bottom: 16px;">
+          Generate Your Custom Roadmap
+        </h2>
+        <p style="color: #6b7280; margin-bottom: 24px;">
+          Tell us your learning goals and current skill level, and our AI will create a personalized study plan just for you.
+        </p>
+
+        <form onsubmit="generateRoadmap(event)" style="display: grid; gap: 20px;">
+          <div class="form-group">
+            <label class="form-label">What do you want to learn?</label>
+            <input type="text" class="form-input" placeholder="e.g., Full Stack Development, Machine Learning, Data Science" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Current Level</label>
+            <select class="form-input" required>
+              <option value="">Select your level</option>
+              <option value="beginner">Beginner - Just starting out</option>
+              <option value="intermediate">Intermediate - Some experience</option>
+              <option value="advanced">Advanced - Strong foundation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Time Commitment (hours per week)</label>
+            <input type="number" class="form-input" placeholder="10" min="1" max="40" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Target Timeline</label>
+            <select class="form-input" required>
+              <option value="">Select timeline</option>
+              <option value="1month">1 Month</option>
+              <option value="3months">3 Months</option>
+              <option value="6months">6 Months</option>
+              <option value="1year">1 Year</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large">
+            🤖 Generate AI Roadmap
+          </button>
+        </form>
+      </div>
+
+      <!-- Sample Roadmap -->
+      <div id="generatedRoadmap" class="hidden">
+        <h2 style="font-size: 24px; font-weight: 700; color: #1e3a8a; margin: 32px 0 24px;">
+          Your Personalized Roadmap
+        </h2>
+
+        <!-- Phase 1 -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="width: 48px; height: 48px; background: #eff6ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">1️⃣</div>
+            <div>
+              <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a;">Phase 1: Fundamentals</h3>
+              <p style="color: #6b7280; font-size: 14px;">Duration: 4 weeks</p>
+            </div>
+          </div>
+
+          <div style="display: grid; gap: 12px;">
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #16a34a; font-size: 20px;">✓</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">HTML & CSS Basics</h4>
+                <p style="font-size: 14px; color: #6b7280;">Learn web structure and styling fundamentals</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #2563EB; font-size: 20px;">→</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">JavaScript Fundamentals</h4>
+                <p style="font-size: 14px; color: #6b7280;">Master core JavaScript concepts and syntax</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Version Control with Git</h4>
+                <p style="font-size: 14px; color: #6b7280;">Learn Git basics and GitHub collaboration</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="width: 48px; height: 48px; background: #f0fdf4; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">2️⃣</div>
+            <div>
+              <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a;">Phase 2: Frontend Frameworks</h3>
+              <p style="color: #6b7280; font-size: 14px;">Duration: 6 weeks</p>
+            </div>
+          </div>
+
+          <div style="display: grid; gap: 12px;">
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">React.js Basics</h4>
+                <p style="font-size: 14px; color: #6b7280;">Build interactive UIs with React</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">State Management</h4>
+                <p style="font-size: 14px; color: #6b7280;">Master Redux and Context API</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Frontend Project</h4>
+                <p style="font-size: 14px; color: #6b7280;">Build a complete frontend application</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="card" style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+            <div style="width: 48px; height: 48px; background: #fff7ed; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">3️⃣</div>
+            <div>
+              <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a;">Phase 3: Backend Development</h3>
+              <p style="color: #6b7280; font-size: 14px;">Duration: 8 weeks</p>
+            </div>
+          </div>
+
+          <div style="display: grid; gap: 12px;">
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Node.js & Express</h4>
+                <p style="font-size: 14px; color: #6b7280;">Build server-side applications</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Database Design</h4>
+                <p style="font-size: 14px; color: #6b7280;">Learn SQL and NoSQL databases</p>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: start; gap: 12px; padding: 12px; background: #f9fafb; border-radius: 12px;">
+              <span style="color: #6b7280; font-size: 20px;">○</span>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">API Development</h4>
+                <p style="font-size: 14px; color: #6b7280;">Create RESTful APIs and authentication</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Project -->
+        <div class="card" style="background: linear-gradient(135deg, #faf5ff 0%, white 100%); border: 2px solid #9333ea;">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+            <div style="width: 48px; height: 48px; background: #faf5ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">🎯</div>
+            <div>
+              <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a;">Final Capstone Project</h3>
+              <p style="color: #6b7280; font-size: 14px;">Duration: 4 weeks</p>
+            </div>
+          </div>
+          <p style="color: #6b7280;">Build a complete full-stack application showcasing all your learned skills. This will be your portfolio project!</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! I can help you create a personalized learning roadmap. What would you like to learn?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+  <script>
+    function generateRoadmap(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      const button = e.target.querySelector('button[type="submit"]');
+      const originalText = button.innerHTML;
+      button.innerHTML = '🔄 Generating...';
+      button.disabled = true;
+      
+      // Simulate AI generation
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.disabled = false;
+        
+        // Show generated roadmap
+        document.getElementById('generatedRoadmap').classList.remove('hidden');
+        
+        // Scroll to roadmap
+        document.getElementById('generatedRoadmap').scrollIntoView({ behavior: 'smooth' });
+        
+        // Show success message
+        if (window.showNotification) {
+          window.showNotification('Roadmap generated successfully! 🎉');
+        } else {
+          alert('Roadmap generated successfully! 🎉');
+        }
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

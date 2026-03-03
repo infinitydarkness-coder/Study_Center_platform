@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Management - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link active">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header-actions">
+        <div class="page-header" style="margin-bottom: 0;">
+          <h1>Courses Management</h1>
+          <p>Add, edit, or remove courses</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAddCourseModal()">
+          <span>➕</span> Add Course
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="input-field search-input" placeholder="Search courses by name or code...">
+        </div>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="grid grid-cols-3">
+        <!-- Course Card 1 -->
+        <div class="card">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue">📖</div>
+            <span class="badge badge-success">Active</span>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Bachelor of Computer Science</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Code: BCS</p>
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Subjects</span>
+              <span style="font-weight: 500; color: #1e3a8a;">12</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Students</span>
+              <span style="font-weight: 500; color: #1e3a8a;">345</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Duration</span>
+              <span style="font-weight: 500; color: #1e3a8a;">4 Years</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #f3f4f6;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;" onclick="editCourse('Bachelor of Computer Science')">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;" onclick="deleteCourse('Bachelor of Computer Science')">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Course Card 2 -->
+        <div class="card">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue">📖</div>
+            <span class="badge badge-success">Active</span>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Bachelor of Information Technology</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Code: BIT</p>
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Subjects</span>
+              <span style="font-weight: 500; color: #1e3a8a;">10</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Students</span>
+              <span style="font-weight: 500; color: #1e3a8a;">278</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Duration</span>
+              <span style="font-weight: 500; color: #1e3a8a;">4 Years</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #f3f4f6;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;" onclick="editCourse('Bachelor of Information Technology')">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;" onclick="deleteCourse('Bachelor of Information Technology')">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Course Card 3 -->
+        <div class="card">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue">📖</div>
+            <span class="badge badge-success">Active</span>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Master of Computer Science</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Code: MCS</p>
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Subjects</span>
+              <span style="font-weight: 500; color: #1e3a8a;">8</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Students</span>
+              <span style="font-weight: 500; color: #1e3a8a;">156</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Duration</span>
+              <span style="font-weight: 500; color: #1e3a8a;">2 Years</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #f3f4f6;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;" onclick="editCourse('Master of Computer Science')">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;" onclick="deleteCourse('Master of Computer Science')">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Course Card 4 -->
+        <div class="card">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue">📖</div>
+            <span class="badge badge-success">Active</span>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Bachelor of Data Science</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 16px;">Code: BDS</p>
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Subjects</span>
+              <span style="font-weight: 500; color: #1e3a8a;">11</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px;">
+              <span style="color: #6b7280;">Students</span>
+              <span style="font-weight: 500; color: #1e3a8a;">189</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px;">
+              <span style="color: #6b7280;">Duration</span>
+              <span style="font-weight: 500; color: #1e3a8a;">4 Years</span>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #f3f4f6;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;" onclick="editCourse('Bachelor of Data Science')">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;" onclick="deleteCourse('Bachelor of Data Science')">🗑️ Delete</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Course Modal -->
+  <div id="addCourseModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 class="modal-header">Add New Course</h2>
+      <form onsubmit="submitCourse(event)">
+        <div class="input-group">
+          <label class="input-label">Course Name</label>
+          <input type="text" class="input-field" placeholder="e.g., Bachelor of Computer Science" required>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Course Code</label>
+          <input type="text" class="input-field" placeholder="e.g., BCS" required>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Duration</label>
+          <select class="input-field">
+            <option>2 Years</option>
+            <option>3 Years</option>
+            <option selected>4 Years</option>
+            <option>5 Years</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAddCourseModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Course</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-script.js"></script>
+  <script>
+    function openAddCourseModal() {
+      document.getElementById('addCourseModal').classList.remove('hidden');
+    }
+
+    function closeAddCourseModal() {
+      document.getElementById('addCourseModal').classList.add('hidden');
+    }
+
+    function submitCourse(e) {
+      e.preventDefault();
+      alert('Course added successfully!');
+      closeAddCourseModal();
+    }
+
+    function editCourse(name) {
+      alert('Edit course: ' + name);
+    }
+
+    function deleteCourse(name) {
+      if (confirm('Are you sure you want to delete ' + name + '?')) {
+        alert('Course deleted successfully!');
+      }
+    }
+  </script>
+</body>
+</html>

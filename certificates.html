@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar">JD</div>
+          <div class="user-info">
+            <h4>John Doe</h4>
+            <p>Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="courses.html">📖 My Courses</a></li>
+          <li><a href="roadmap.html">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html" class="active">🏆 Certificates</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+          🏆 My Certificates
+        </h1>
+        <p style="color: #6b7280; font-size: 16px;">Showcase your achievements and earned credentials</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" style="margin-bottom: 32px;">
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple">🏆</div>
+          </div>
+          <div class="stat-value">5</div>
+          <div class="stat-label">Total Certificates</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green">✓</div>
+          </div>
+          <div class="stat-value">8</div>
+          <div class="stat-label">Courses Completed</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue">📊</div>
+          </div>
+          <div class="stat-value">4</div>
+          <div class="stat-label">In Progress</div>
+        </div>
+      </div>
+
+      <!-- Certificates Grid -->
+      <div class="certificates-grid">
+        <!-- Certificate 1 -->
+        <div class="certificate-card">
+          <div class="certificate-header">
+            <h3 class="certificate-title">Database Management Systems</h3>
+            <p class="certificate-date">Issued: February 10, 2024</p>
+          </div>
+          
+          <div style="padding: 20px; background: white; border-radius: 12px; margin: 20px 0;">
+            <div style="text-align: center; color: #2563EB; font-weight: 600; margin-bottom: 12px;">
+              Certificate ID: CERT-2024-001
+            </div>
+            <div style="text-align: center; color: #6b7280; font-size: 14px;">
+              This certifies that <strong style="color: #1e3a8a;">John Doe</strong> has successfully completed the course
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+            <span style="color: #16a34a; font-weight: 600; font-size: 14px;">✓ Verified</span>
+            <span style="color: #6b7280; font-size: 14px;">Score: 92%</span>
+          </div>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" onclick="downloadCertificate('DBMS')">
+              Download PDF
+            </button>
+            <button class="btn btn-outline" onclick="shareCertificate('DBMS')">
+              Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="certificate-card">
+          <div class="certificate-header">
+            <h3 class="certificate-title">Data Analysis</h3>
+            <p class="certificate-date">Issued: February 5, 2024</p>
+          </div>
+          
+          <div style="padding: 20px; background: white; border-radius: 12px; margin: 20px 0;">
+            <div style="text-align: center; color: #2563EB; font-weight: 600; margin-bottom: 12px;">
+              Certificate ID: CERT-2024-002
+            </div>
+            <div style="text-align: center; color: #6b7280; font-size: 14px;">
+              This certifies that <strong style="color: #1e3a8a;">John Doe</strong> has successfully completed the course
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+            <span style="color: #16a34a; font-weight: 600; font-size: 14px;">✓ Verified</span>
+            <span style="color: #6b7280; font-size: 14px;">Score: 88%</span>
+          </div>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" onclick="downloadCertificate('Data Analysis')">
+              Download PDF
+            </button>
+            <button class="btn btn-outline" onclick="shareCertificate('Data Analysis')">
+              Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="certificate-card">
+          <div class="certificate-header">
+            <h3 class="certificate-title">Python Programming</h3>
+            <p class="certificate-date">Issued: January 28, 2024</p>
+          </div>
+          
+          <div style="padding: 20px; background: white; border-radius: 12px; margin: 20px 0;">
+            <div style="text-align: center; color: #2563EB; font-weight: 600; margin-bottom: 12px;">
+              Certificate ID: CERT-2024-003
+            </div>
+            <div style="text-align: center; color: #6b7280; font-size: 14px;">
+              This certifies that <strong style="color: #1e3a8a;">John Doe</strong> has successfully completed the course
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+            <span style="color: #16a34a; font-weight: 600; font-size: 14px;">✓ Verified</span>
+            <span style="color: #6b7280; font-size: 14px;">Score: 95%</span>
+          </div>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" onclick="downloadCertificate('Python')">
+              Download PDF
+            </button>
+            <button class="btn btn-outline" onclick="shareCertificate('Python')">
+              Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Certificate 4 -->
+        <div class="certificate-card">
+          <div class="certificate-header">
+            <h3 class="certificate-title">Web Development Fundamentals</h3>
+            <p class="certificate-date">Issued: January 15, 2024</p>
+          </div>
+          
+          <div style="padding: 20px; background: white; border-radius: 12px; margin: 20px 0;">
+            <div style="text-align: center; color: #2563EB; font-weight: 600; margin-bottom: 12px;">
+              Certificate ID: CERT-2024-004
+            </div>
+            <div style="text-align: center; color: #6b7280; font-size: 14px;">
+              This certifies that <strong style="color: #1e3a8a;">John Doe</strong> has successfully completed the course
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+            <span style="color: #16a34a; font-weight: 600; font-size: 14px;">✓ Verified</span>
+            <span style="color: #6b7280; font-size: 14px;">Score: 90%</span>
+          </div>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" onclick="downloadCertificate('Web Dev')">
+              Download PDF
+            </button>
+            <button class="btn btn-outline" onclick="shareCertificate('Web Dev')">
+              Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Certificate 5 -->
+        <div class="certificate-card">
+          <div class="certificate-header">
+            <h3 class="certificate-title">Introduction to AI</h3>
+            <p class="certificate-date">Issued: December 20, 2023</p>
+          </div>
+          
+          <div style="padding: 20px; background: white; border-radius: 12px; margin: 20px 0;">
+            <div style="text-align: center; color: #2563EB; font-weight: 600; margin-bottom: 12px;">
+              Certificate ID: CERT-2023-005
+            </div>
+            <div style="text-align: center; color: #6b7280; font-size: 14px;">
+              This certifies that <strong style="color: #1e3a8a;">John Doe</strong> has successfully completed the course
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid rgba(37, 99, 235, 0.2);">
+            <span style="color: #16a34a; font-weight: 600; font-size: 14px;">✓ Verified</span>
+            <span style="color: #6b7280; font-size: 14px;">Score: 87%</span>
+          </div>
+
+          <div class="certificate-actions">
+            <button class="btn btn-primary" onclick="downloadCertificate('AI')">
+              Download PDF
+            </button>
+            <button class="btn btn-outline" onclick="shareCertificate('AI')">
+              Share
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Certificates -->
+      <div class="card" style="margin-top: 32px;">
+        <h2 class="card-title" style="margin-bottom: 16px;">🎯 Upcoming Certificates</h2>
+        <p style="color: #6b7280; margin-bottom: 20px;">Complete these courses to earn more certificates</p>
+        
+        <div style="display: grid; gap: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #f9fafb; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 48px; height: 48px; background: #eff6ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">💻</div>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Data Structures & Algorithms</h4>
+                <p style="font-size: 14px; color: #6b7280;">65% complete</p>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-weight: 600; color: #2563EB; margin-bottom: 4px;">35% to go</div>
+              <a href="subject.html?id=1" style="font-size: 14px; color: #2563EB; text-decoration: none;">Continue →</a>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #f9fafb; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 48px; height: 48px; background: #f0fdf4; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">🤖</div>
+              <div>
+                <h4 style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Machine Learning</h4>
+                <p style="font-size: 14px; color: #6b7280;">40% complete</p>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-weight: 600; color: #2563EB; margin-bottom: 4px;">60% to go</div>
+              <a href="subject.html?id=2" style="font-size: 14px; color: #2563EB; text-decoration: none;">Continue →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Congratulations on your certificates! How can I help you earn more?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+  <script>
+    function downloadCertificate(name) {
+      alert('Downloading certificate for: ' + name);
+      // In a real application, you would trigger PDF download
+    }
+
+    function shareCertificate(name) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'My Certificate - ' + name,
+          text: 'Check out my certificate from Study Center!',
+          url: window.location.href
+        });
+      } else {
+        alert('Share certificate: ' + name);
+      }
+    }
+  </script>
+</body>
+</html>

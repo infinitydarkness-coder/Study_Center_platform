@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories Management - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+  <style>
+    .category-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 2px solid;
+      transition: all 0.2s;
+    }
+    .category-card:hover {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    }
+    .category-card.blue {
+      border-color: #bfdbfe;
+      background: linear-gradient(135deg, #ffffff, #eff6ff);
+    }
+    .category-card.green {
+      border-color: #bbf7d0;
+      background: linear-gradient(135deg, #ffffff, #f0fdf4);
+    }
+    .category-card.purple {
+      border-color: #e9d5ff;
+      background: linear-gradient(135deg, #ffffff, #faf5ff);
+    }
+    .category-card.orange {
+      border-color: #fed7aa;
+      background: linear-gradient(135deg, #ffffff, #fff7ed);
+    }
+    .category-card.red {
+      border-color: #fecaca;
+      background: linear-gradient(135deg, #ffffff, #fef2f2);
+    }
+    .category-card.indigo {
+      border-color: #c7d2fe;
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link active">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="header-actions">
+        <div class="page-header" style="margin-bottom: 0;">
+          <h1>Categories Management</h1>
+          <p>Organize study materials into categories</p>
+        </div>
+        <button class="btn btn-primary" onclick="openAddCategoryModal()">
+          <span>➕</span> Add Category
+        </button>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="grid grid-cols-3">
+        <!-- Category Card 1 -->
+        <div class="category-card blue">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Notes</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">245 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Category Card 2 -->
+        <div class="category-card green">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon green">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Presentations</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">156 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Category Card 3 -->
+        <div class="category-card purple">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon purple">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Videos</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">89 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Category Card 4 -->
+        <div class="category-card orange">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon orange">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Practice Papers</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">134 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Category Card 5 -->
+        <div class="category-card red">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon red" style="background: #fef2f2; color: #dc2626;">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Lab Manuals</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">67 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+
+        <!-- Category Card 6 -->
+        <div class="category-card indigo">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 16px;">
+            <div class="stat-icon blue" style="background: #eef2ff; color: #4f46e5;">⊞</div>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #1e3a8a; margin-bottom: 8px;">Books</h3>
+          <p style="font-size: 14px; color: #6b7280; margin-bottom: 24px;">98 materials</p>
+          <div style="display: flex; gap: 8px; padding-top: 16px; border-top: 1px solid #e5e7eb;">
+            <button class="btn btn-secondary btn-small" style="flex: 1;">✏️ Edit</button>
+            <button class="btn btn-danger btn-small" style="flex: 1;">🗑️ Delete</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Category Modal -->
+  <div id="addCategoryModal" class="modal-overlay hidden">
+    <div class="modal">
+      <h2 class="modal-header">Add New Category</h2>
+      <form onsubmit="submitCategory(event)">
+        <div class="input-group">
+          <label class="input-label">Category Name</label>
+          <input type="text" class="input-field" placeholder="e.g., Notes" required>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Color</label>
+          <select class="input-field">
+            <option>Blue</option>
+            <option>Green</option>
+            <option>Purple</option>
+            <option>Orange</option>
+            <option>Red</option>
+            <option>Indigo</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeAddCategoryModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-script.js"></script>
+  <script>
+    function openAddCategoryModal() {
+      document.getElementById('addCategoryModal').classList.remove('hidden');
+    }
+
+    function closeAddCategoryModal() {
+      document.getElementById('addCategoryModal').classList.add('hidden');
+    }
+
+    function submitCategory(e) {
+      e.preventDefault();
+      alert('Category added successfully!');
+      closeAddCategoryModal();
+    }
+  </script>
+</body>
+</html>

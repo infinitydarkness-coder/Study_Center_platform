@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar" id="userAvatar">JD</div>
+          <div class="user-info">
+            <h4 id="userName">John Doe</h4>
+            <p id="userCourse">Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="courses.html">📖 My Courses</a></li>
+          <li><a href="roadmap.html">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html">🏆 Certificates</a></li>
+          <li><a href="profile.html" class="active">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+          My Profile
+        </h1>
+        <p style="color: #6b7280; font-size: 16px;">Manage your account settings and preferences</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <!-- Main Profile Section -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Personal Information -->
+          <div class="card">
+            <h2 class="card-title" style="margin-bottom: 24px;">Personal Information</h2>
+            
+            <form onsubmit="updateProfile(event)" style="display: grid; gap: 20px;">
+              <div style="display: flex; align-items: center; gap: 24px; margin-bottom: 8px;">
+                <div class="user-avatar" id="profileAvatar" style="width: 80px; height: 80px; font-size: 32px;">JD</div>
+                <div>
+                  <button type="button" class="btn btn-secondary">Change Photo</button>
+                  <p style="font-size: 12px; color: #6b7280; margin-top: 8px;">JPG, PNG or GIF, max 2MB</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="fullNameInput" class="form-input" value="John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="emailInput" class="form-input" value="john.doe@email.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-input" value="+1 234 567 8900">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Course</label>
+                <select id="courseSelect" class="form-input" required>
+                  <option value="cs">Computer Science</option>
+                  <option value="it">Information Technology</option>
+                  <option value="ai">Artificial Intelligence</option>
+                  <option value="ds">Data Science</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Year</label>
+                <select class="form-input" required>
+                  <option>First Year</option>
+                  <option selected>Second Year</option>
+                  <option>Third Year</option>
+                  <option>Fourth Year</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Bio</label>
+                <textarea class="form-input" rows="4" placeholder="Tell us about yourself...">Passionate computer science student interested in AI and web development.</textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+            </form>
+          </div>
+
+          <!-- Change Password -->
+          <div class="card">
+            <h2 class="card-title" style="margin-bottom: 24px;">Change Password</h2>
+            
+            <form onsubmit="changePassword(event)" style="display: grid; gap: 20px;">
+              <div class="form-group">
+                <label class="form-label">Current Password</label>
+                <input type="password" class="form-input" placeholder="Enter current password" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">New Password</label>
+                <input type="password" class="form-input" placeholder="Enter new password" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Confirm New Password</label>
+                <input type="password" class="form-input" placeholder="Confirm new password" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Update Password
+              </button>
+            </form>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="card">
+            <h2 class="card-title" style="margin-bottom: 24px;">Notification Preferences</h2>
+            
+            <div style="display: grid; gap: 16px;">
+              <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f9fafb; border-radius: 12px; cursor: pointer;">
+                <div>
+                  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Email Notifications</div>
+                  <div style="font-size: 14px; color: #6b7280;">Receive email updates about new materials and courses</div>
+                </div>
+                <input type="checkbox" checked style="width: 20px; height: 20px;">
+              </label>
+
+              <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f9fafb; border-radius: 12px; cursor: pointer;">
+                <div>
+                  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Course Updates</div>
+                  <div style="font-size: 14px; color: #6b7280;">Get notified when new materials are added to your courses</div>
+                </div>
+                <input type="checkbox" checked style="width: 20px; height: 20px;">
+              </label>
+
+              <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f9fafb; border-radius: 12px; cursor: pointer;">
+                <div>
+                  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Certificate Alerts</div>
+                  <div style="font-size: 14px; color: #6b7280;">Receive alerts when you earn new certificates</div>
+                </div>
+                <input type="checkbox" checked style="width: 20px; height: 20px;">
+              </label>
+
+              <label style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f9fafb; border-radius: 12px; cursor: pointer;">
+                <div>
+                  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">Weekly Summary</div>
+                  <div style="font-size: 14px; color: #6b7280;">Get a weekly summary of your learning progress</div>
+                </div>
+                <input type="checkbox" style="width: 20px; height: 20px;">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Stats -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Profile Stats -->
+          <div class="card">
+            <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 20px;">Profile Stats</h3>
+            
+            <div style="display: grid; gap: 16px;">
+              <div>
+                <div style="font-size: 24px; font-weight: 700; color: #2563EB; margin-bottom: 4px;">12</div>
+                <div style="font-size: 14px; color: #6b7280;">Enrolled Courses</div>
+              </div>
+
+              <div>
+                <div style="font-size: 24px; font-weight: 700; color: #16a34a; margin-bottom: 4px;">8</div>
+                <div style="font-size: 14px; color: #6b7280;">Completed</div>
+              </div>
+
+              <div>
+                <div style="font-size: 24px; font-weight: 700; color: #ea580c; margin-bottom: 4px;">156</div>
+                <div style="font-size: 14px; color: #6b7280;">Materials Downloaded</div>
+              </div>
+
+              <div>
+                <div style="font-size: 24px; font-weight: 700; color: #9333ea; margin-bottom: 4px;">5</div>
+                <div style="font-size: 14px; color: #6b7280;">Certificates Earned</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Info -->
+          <div class="card">
+            <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 20px;">Account Info</h3>
+            
+            <div style="display: grid; gap: 12px; font-size: 14px;">
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px;">Member Since</div>
+                <div style="color: #1e3a8a; font-weight: 600;">September 15, 2023</div>
+              </div>
+
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px;">Last Login</div>
+                <div style="color: #1e3a8a; font-weight: 600;">Today at 10:30 AM</div>
+              </div>
+
+              <div>
+                <div style="color: #6b7280; margin-bottom: 4px;">Account Status</div>
+                <span style="display: inline-block; padding: 4px 12px; background: #f0fdf4; color: #16a34a; border-radius: 6px; font-size: 12px; font-weight: 500;">Active</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card">
+            <h3 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 20px;">Quick Actions</h3>
+            
+            <div style="display: grid; gap: 12px;">
+              <button class="btn btn-outline" style="width: 100%; justify-content: flex-start;">
+                📥 Download My Data
+              </button>
+              
+              <button class="btn btn-outline" style="width: 100%; justify-content: flex-start;">
+                📊 View Activity Log
+              </button>
+              
+              <button class="btn btn-outline" style="width: 100%; justify-content: flex-start; color: #dc2626; border-color: #dc2626;">
+                🗑️ Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! Need help with your profile settings?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const SUPABASE_URL = "https://rotocgcvorxjzevtwueu.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvdG9jZ2N2b3J4anpldnR3dWV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MTA4NjQsImV4cCI6MjA4NzQ4Njg2NH0.lqH7-v-oihegXK5OkI_kseTbkQ271QjOk8gRoFIfI3Y";
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const userNameEl = document.getElementById("userName");
+    const userCourseEl = document.getElementById("userCourse");
+    const userAvatarEl = document.getElementById("userAvatar");
+    const profileAvatarEl = document.getElementById("profileAvatar");
+    const fullNameInput = document.getElementById("fullNameInput");
+    const emailInput = document.getElementById("emailInput");
+    const courseSelect = document.getElementById("courseSelect");
+
+    const courseLabelMap = {
+      cs: "Computer Science",
+      it: "Information Technology",
+      ai: "Artificial Intelligence",
+      ds: "Data Science"
+    };
+
+    function initialsFromName(name) {
+      if (!name) return "U";
+      const parts = name.trim().split(/\s+/);
+      const first = parts[0]?.[0] || "";
+      const last = parts.length > 1 ? parts[parts.length - 1][0] : "";
+      return (first + last).toUpperCase() || "U";
+    }
+
+    async function loadUser() {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error || !user) return;
+
+      const fullName = user.user_metadata?.full_name || "User";
+      const courseKey = user.user_metadata?.course || "";
+      const courseLabel = courseLabelMap[courseKey] || courseKey || "Course";
+
+      userNameEl.textContent = fullName;
+      userCourseEl.textContent = courseLabel;
+      userAvatarEl.textContent = initialsFromName(fullName);
+      profileAvatarEl.textContent = initialsFromName(fullName);
+
+      fullNameInput.value = fullName;
+      emailInput.value = user.email || "";
+      if (courseKey) courseSelect.value = courseKey;
+    }
+
+    loadUser();
+  </script>
+</body>
+</html>

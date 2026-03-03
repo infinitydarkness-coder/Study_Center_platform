@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users Management - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link active">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Users Management</h1>
+        <p>Manage students and administrators</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" style="margin-bottom: 32px;">
+        <div class="card">
+          <div style="font-size: 28px; font-weight: 600; color: #1e3a8a; margin-bottom: 4px;">1,248</div>
+          <div style="font-size: 14px; color: #6b7280;">Total Users</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 28px; font-weight: 600; color: #16a34a; margin-bottom: 4px;">1,235</div>
+          <div style="font-size: 14px; color: #6b7280;">Students</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 28px; font-weight: 600; color: #2563EB; margin-bottom: 4px;">13</div>
+          <div style="font-size: 14px; color: #6b7280;">Admins</div>
+        </div>
+
+        <div class="card">
+          <div style="font-size: 28px; font-weight: 600; color: #ea580c; margin-bottom: 4px;">45</div>
+          <div style="font-size: 14px; color: #6b7280;">New This Month</div>
+        </div>
+      </div>
+
+      <!-- Filters and Search -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div class="search-wrapper" style="flex: 1; min-width: 300px;">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="input-field search-input" placeholder="Search by name, email, or phone...">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #9ca3af;">🔽</span>
+            <select class="input-field" style="width: auto; min-width: 150px;">
+              <option>All Roles</option>
+              <option>Students</option>
+              <option>Admins</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Users Table -->
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Contact</th>
+              <th>Role</th>
+              <th>Course</th>
+              <th>Join Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">👤</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">John Doe</div>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 4px;">
+                    <span>✉️</span> john.doe@email.com
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151;">
+                    <span>📞</span> +1 234 567 8900
+                  </div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Student</span></td>
+              <td>Computer Science</td>
+              <td>2023-09-15</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <button class="icon-btn">⋮</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">👤</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Sarah Smith</div>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 4px;">
+                    <span>✉️</span> sarah.smith@email.com
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151;">
+                    <span>📞</span> +1 234 567 8901
+                  </div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Student</span></td>
+              <td>Artificial Intelligence</td>
+              <td>2023-09-16</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <button class="icon-btn">⋮</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">👤</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Michael Brown</div>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 4px;">
+                    <span>✉️</span> michael.brown@email.com
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151;">
+                    <span>📞</span> +1 234 567 8902
+                  </div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Student</span></td>
+              <td>Information Technology</td>
+              <td>2023-09-17</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <button class="icon-btn">⋮</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">👤</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">Emily Johnson</div>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 4px;">
+                    <span>✉️</span> emily.johnson@email.com
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151;">
+                    <span>📞</span> +1 234 567 8903
+                  </div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Student</span></td>
+              <td>Data Science</td>
+              <td>2023-09-18</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <button class="icon-btn">⋮</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">👤</div>
+                  <div style="font-weight: 500; color: #1e3a8a;">David Wilson</div>
+                </div>
+              </td>
+              <td>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; margin-bottom: 4px;">
+                    <span>✉️</span> david.wilson@email.com
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151;">
+                    <span>📞</span> +1 234 567 8904
+                  </div>
+                </div>
+              </td>
+              <td><span class="badge badge-purple">Admin</span></td>
+              <td>-</td>
+              <td>2023-01-10</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <button class="icon-btn">⋮</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <p class="pagination-info">Showing 1-5 of 1,248 users</p>
+        <div class="pagination-buttons">
+          <button class="pagination-btn">Previous</button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>

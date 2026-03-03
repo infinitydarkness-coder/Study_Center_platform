@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pending Uploads - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link active">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Pending Uploads</h1>
+        <p>Review and approve study materials uploaded by students</p>
+      </div>
+
+      <!-- Filters and Search -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <div class="search-wrapper" style="flex: 1; min-width: 300px;">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="input-field search-input" placeholder="Search by title, subject, or student name..." id="searchInput">
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #9ca3af;">🔽</span>
+            <select class="input-field" id="filterType" style="width: auto; min-width: 150px;">
+              <option value="all">All Types</option>
+              <option value="PDF">PDF</option>
+              <option value="Video">Video</option>
+              <option value="PPT">PPT</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uploads Table -->
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Subject</th>
+              <th>Uploaded By</th>
+              <th>Type</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="uploadsTable">
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📄</div>
+                  <div class="item-info">
+                    <h3>Introduction to Data Structures</h3>
+                    <p>2.5 MB</p>
+                  </div>
+                </div>
+              </td>
+              <td>Computer Science</td>
+              <td>
+                <div>
+                  <div style="font-weight: 500; color: #1e3a8a; margin-bottom: 2px;">John Doe</div>
+                  <div style="font-size: 12px; color: #6b7280;">john.doe@email.com</div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">PDF</span></td>
+              <td>
+                <div>
+                  <div>2024-02-15</div>
+                  <div style="font-size: 12px; color: #6b7280;">10:30 AM</div>
+                </div>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn btn-success btn-small" onclick="approveUpload('Introduction to Data Structures')">Approve</button>
+                  <button class="btn btn-danger btn-small" onclick="rejectUpload('Introduction to Data Structures')">Reject</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">🎥</div>
+                  <div class="item-info">
+                    <h3>Machine Learning Basics</h3>
+                    <p>45.2 MB</p>
+                  </div>
+                </div>
+              </td>
+              <td>Artificial Intelligence</td>
+              <td>
+                <div>
+                  <div style="font-weight: 500; color: #1e3a8a; margin-bottom: 2px;">Sarah Smith</div>
+                  <div style="font-size: 12px; color: #6b7280;">sarah.smith@email.com</div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Video</span></td>
+              <td>
+                <div>
+                  <div>2024-02-14</div>
+                  <div style="font-size: 12px; color: #6b7280;">3:45 PM</div>
+                </div>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn btn-success btn-small" onclick="approveUpload('Machine Learning Basics')">Approve</button>
+                  <button class="btn btn-danger btn-small" onclick="rejectUpload('Machine Learning Basics')">Reject</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📊</div>
+                  <div class="item-info">
+                    <h3>Database Management Systems</h3>
+                    <p>5.8 MB</p>
+                  </div>
+                </div>
+              </td>
+              <td>Computer Science</td>
+              <td>
+                <div>
+                  <div style="font-weight: 500; color: #1e3a8a; margin-bottom: 2px;">Michael Brown</div>
+                  <div style="font-size: 12px; color: #6b7280;">michael.brown@email.com</div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">PPT</span></td>
+              <td>
+                <div>
+                  <div>2024-02-14</div>
+                  <div style="font-size: 12px; color: #6b7280;">2:15 PM</div>
+                </div>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn btn-success btn-small" onclick="approveUpload('Database Management Systems')">Approve</button>
+                  <button class="btn btn-danger btn-small" onclick="rejectUpload('Database Management Systems')">Reject</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">📄</div>
+                  <div class="item-info">
+                    <h3>Operating Systems Concepts</h3>
+                    <p>3.2 MB</p>
+                  </div>
+                </div>
+              </td>
+              <td>Computer Science</td>
+              <td>
+                <div>
+                  <div style="font-weight: 500; color: #1e3a8a; margin-bottom: 2px;">Emily Johnson</div>
+                  <div style="font-size: 12px; color: #6b7280;">emily.johnson@email.com</div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">PDF</span></td>
+              <td>
+                <div>
+                  <div>2024-02-13</div>
+                  <div style="font-size: 12px; color: #6b7280;">11:20 AM</div>
+                </div>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn btn-success btn-small" onclick="approveUpload('Operating Systems Concepts')">Approve</button>
+                  <button class="btn btn-danger btn-small" onclick="rejectUpload('Operating Systems Concepts')">Reject</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="item-card">
+                  <div class="item-icon">🎥</div>
+                  <div class="item-info">
+                    <h3>Web Development Tutorial</h3>
+                    <p>67.5 MB</p>
+                  </div>
+                </div>
+              </td>
+              <td>Web Technologies</td>
+              <td>
+                <div>
+                  <div style="font-weight: 500; color: #1e3a8a; margin-bottom: 2px;">David Wilson</div>
+                  <div style="font-size: 12px; color: #6b7280;">david.wilson@email.com</div>
+                </div>
+              </td>
+              <td><span class="badge badge-blue">Video</span></td>
+              <td>
+                <div>
+                  <div>2024-02-13</div>
+                  <div style="font-size: 12px; color: #6b7280;">9:00 AM</div>
+                </div>
+              </td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn btn-success btn-small" onclick="approveUpload('Web Development Tutorial')">Approve</button>
+                  <button class="btn btn-danger btn-small" onclick="rejectUpload('Web Development Tutorial')">Reject</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <p class="pagination-info">Showing 1-5 of 23 uploads</p>
+        <div class="pagination-buttons">
+          <button class="pagination-btn">Previous</button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Study Center Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <a href="admin.html" class="logo">
+          <div class="logo-icon">📚</div>
+          <div class="logo-text">
+            <div class="logo-title">Study Center</div>
+            <div class="logo-subtitle">Admin Panel</div>
+          </div>
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="admin.html" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-courses.html" class="nav-link">
+                <span class="nav-icon">📖</span>
+                <span>Courses</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-subjects.html" class="nav-link">
+                <span class="nav-icon">📂</span>
+                <span>Subjects</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-categories.html" class="nav-link">
+                <span class="nav-icon">⊞</span>
+                <span>Categories</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-pending-uploads.html" class="nav-link">
+                <span class="nav-icon">⏱</span>
+                <span>Pending Uploads</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-certificates.html" class="nav-link">
+                <span class="nav-icon">🏆</span>
+                <span>Certificates</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-users.html" class="nav-link">
+                <span class="nav-icon">👥</span>
+                <span>Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="admin-settings.html" class="nav-link active">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-logout">
+            <a href="index.html" class="nav-link logout">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1>Settings</h1>
+        <p>Manage your admin panel settings</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <!-- Main Settings Column -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Platform Settings -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 24px; border-bottom: 1px solid #f3f4f6; margin-bottom: 24px;">
+              <div class="stat-icon blue">🌐</div>
+              <div>
+                <h2 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 2px;">Platform Settings</h2>
+                <p style="font-size: 14px; color: #6b7280;">General platform configuration</p>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label class="input-label">Platform Name</label>
+              <input type="text" class="input-field" value="Study Center">
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Platform Description</label>
+              <textarea class="input-field" rows="3">A centralized academic platform for verified study materials and AI-powered learning.</textarea>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Time Zone</label>
+              <select class="input-field">
+                <option>UTC (GMT+0)</option>
+                <option>EST (GMT-5)</option>
+                <option>PST (GMT-8)</option>
+                <option selected>IST (GMT+5:30)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 24px; border-bottom: 1px solid #f3f4f6; margin-bottom: 24px;">
+              <div class="stat-icon orange">🔔</div>
+              <div>
+                <h2 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 2px;">Notifications</h2>
+                <p style="font-size: 14px; color: #6b7280;">Manage notification preferences</p>
+              </div>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h3>Email Notifications</h3>
+                <p>Receive email alerts for important events</p>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h3>New Upload Alerts</h3>
+                <p>Get notified when materials are uploaded</p>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h3>User Registration</h3>
+                <p>Get notified about new user registrations</p>
+              </div>
+              <label class="toggle">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Email Configuration -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; padding-bottom: 24px; border-bottom: 1px solid #f3f4f6; margin-bottom: 24px;">
+              <div class="stat-icon green">✉️</div>
+              <div>
+                <h2 style="font-size: 18px; font-weight: 600; color: #1e3a8a; margin-bottom: 2px;">Email Configuration</h2>
+                <p style="font-size: 14px; color: #6b7280;">Configure email server settings</p>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">SMTP Server</label>
+              <input type="text" class="input-field" placeholder="smtp.example.com">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="input-group">
+                <label class="input-label">Port</label>
+                <input type="text" class="input-field" placeholder="587">
+              </div>
+              <div class="input-group">
+                <label class="input-label">Encryption</label>
+                <select class="input-field">
+                  <option selected>TLS</option>
+                  <option>SSL</option>
+                  <option>None</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Settings Column -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Security -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div class="stat-icon" style="background: #fef2f2; color: #dc2626;">🛡️</div>
+              <h2 style="font-size: 18px; font-weight: 600; color: #1e3a8a;">Security</h2>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <button class="btn btn-secondary" style="width: 100%; justify-content: flex-start;">Change Password</button>
+              <button class="btn btn-secondary" style="width: 100%; justify-content: flex-start;">Two-Factor Auth</button>
+              <button class="btn btn-secondary" style="width: 100%; justify-content: flex-start;">Session Management</button>
+            </div>
+          </div>
+
+          <!-- Data Management -->
+          <div class="card">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+              <div class="stat-icon purple">💾</div>
+              <h2 style="font-size: 18px; font-weight: 600; color: #1e3a8a;">Data</h2>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <button class="btn btn-secondary" style="width: 100%; justify-content: flex-start;">Export Data</button>
+              <button class="btn btn-secondary" style="width: 100%; justify-content: flex-start;">Backup Database</button>
+              <button class="btn btn-danger" style="width: 100%; justify-content: flex-start; background: #fef2f2; color: #dc2626;">Clear Cache</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+        <button class="btn btn-primary" style="padding: 12px 32px;">Save Changes</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="admin-script.js"></script>
+</body>
+</html>

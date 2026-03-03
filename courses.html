@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Courses - Study Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="student-styles.css">
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="dashboard.html" class="sidebar-logo">
+          📚 Study Center
+        </a>
+        
+        <div class="sidebar-user">
+          <div class="user-avatar">JD</div>
+          <div class="user-info">
+            <h4>John Doe</h4>
+            <p>Computer Science</p>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html">📊 Dashboard</a></li>
+          <li><a href="courses.html" class="active">📖 My Courses</a></li>
+          <li><a href="roadmap.html">🗺️ AI Roadmap</a></li>
+          <li><a href="certificates.html">🏆 Certificates</a></li>
+          <li><a href="profile.html">👤 Profile</a></li>
+          <li><a href="index.html">🚪 Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: 32px; font-weight: 700; color: #1e3a8a; margin-bottom: 8px;">
+          My Courses
+        </h1>
+        <p style="color: #6b7280; font-size: 16px;">Browse and manage your enrolled subjects</p>
+      </div>
+
+      <!-- Search and Filter -->
+      <div class="card" style="margin-bottom: 24px;">
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <input type="text" class="form-input" placeholder="🔍 Search courses..." style="flex: 1; min-width: 300px;">
+          <select class="form-input" style="width: auto; min-width: 150px;">
+            <option>All Status</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+            <option>Not Started</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="course-grid">
+        <!-- Course 1 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=1'">
+          <div class="course-image">💻</div>
+          <div class="course-content">
+            <span class="course-badge">In Progress</span>
+            <h3 class="course-title">Data Structures & Algorithms</h3>
+            <div class="course-meta">
+              <span>📁 45 Materials</span>
+              <span>⏱️ 8 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">65% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=2'">
+          <div class="course-image">🤖</div>
+          <div class="course-content">
+            <span class="course-badge">In Progress</span>
+            <h3 class="course-title">Machine Learning</h3>
+            <div class="course-meta">
+              <span>📁 52 Materials</span>
+              <span>⏱️ 12 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">40% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=3'">
+          <div class="course-image">🗄️</div>
+          <div class="course-content">
+            <span class="course-badge" style="background: #f0fdf4; color: #16a34a;">Completed</span>
+            <h3 class="course-title">Database Management</h3>
+            <div class="course-meta">
+              <span>📁 38 Materials</span>
+              <span>⏱️ 6 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%; background: #16a34a;"></div>
+            </div>
+            <p style="font-size: 14px; color: #16a34a; margin-top: 8px;">✓ Completed</p>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=4'">
+          <div class="course-image">⚙️</div>
+          <div class="course-content">
+            <span class="course-badge">In Progress</span>
+            <h3 class="course-title">Operating Systems</h3>
+            <div class="course-meta">
+              <span>📁 41 Materials</span>
+              <span>⏱️ 10 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 55%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">55% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=5'">
+          <div class="course-image">🌐</div>
+          <div class="course-content">
+            <span class="course-badge">In Progress</span>
+            <h3 class="course-title">Web Technologies</h3>
+            <div class="course-meta">
+              <span>📁 36 Materials</span>
+              <span>⏱️ 7 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">75% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=6'">
+          <div class="course-image">🔗</div>
+          <div class="course-content">
+            <span class="course-badge">In Progress</span>
+            <h3 class="course-title">Computer Networks</h3>
+            <div class="course-meta">
+              <span>📁 33 Materials</span>
+              <span>⏱️ 9 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 30%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">30% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=7'">
+          <div class="course-image">🔐</div>
+          <div class="course-content">
+            <span class="course-badge" style="background: #fef2f2; color: #dc2626;">Not Started</span>
+            <h3 class="course-title">Cyber Security</h3>
+            <div class="course-meta">
+              <span>📁 28 Materials</span>
+              <span>⏱️ 5 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">0% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=8'">
+          <div class="course-image">☁️</div>
+          <div class="course-content">
+            <span class="course-badge" style="background: #fef2f2; color: #dc2626;">Not Started</span>
+            <h3 class="course-title">Cloud Computing</h3>
+            <div class="course-meta">
+              <span>📁 31 Materials</span>
+              <span>⏱️ 8 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%;"></div>
+            </div>
+            <p style="font-size: 14px; color: #6b7280; margin-top: 8px;">0% Complete</p>
+          </div>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-card" onclick="window.location.href='subject.html?id=9'">
+          <div class="course-image">📊</div>
+          <div class="course-content">
+            <span class="course-badge" style="background: #f0fdf4; color: #16a34a;">Completed</span>
+            <h3 class="course-title">Data Analysis</h3>
+            <div class="course-meta">
+              <span>📁 42 Materials</span>
+              <span>⏱️ 11 hours</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%; background: #16a34a;"></div>
+            </div>
+            <p style="font-size: 14px; color: #16a34a; margin-top: 8px;">✓ Completed</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot">
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbotWindow" class="chatbot-window hidden">
+      <div class="chatbot-header">
+        <h3 style="font-weight: 600;">AI Study Assistant</h3>
+        <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <div class="chat-message bot">
+          Hi! I'm your AI study assistant. How can I help you today?
+        </div>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="student-script.js"></script>
+</body>
+</html>
